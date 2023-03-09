@@ -28,6 +28,11 @@ defmodule GPTEncoder do
 
   @doc """
   Start the encoder server.
+
+  ## Examples
+
+      iex> {:ok, pid} = GPTEncoder.start_link()
+      {:ok, pid}
   """
   @spec start_link(keyword, keyword) :: GenServer.on_start()
   def start_link(init_opts \\ [], server_opts \\ [name: __MODULE__]) do
@@ -36,6 +41,12 @@ defmodule GPTEncoder do
 
   @doc """
   Encode the given string.
+
+  ## Examples
+
+      iex> GPTEncoder.start_link()
+      ...> GPTEncoder.encode("Hello, world!")
+      [15496, 11, 995, 0]
   """
   @spec encode(String.t()) :: list(integer)
   def encode(string) do
